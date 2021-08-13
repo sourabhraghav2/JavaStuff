@@ -3,7 +3,7 @@ package com.multithreading;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class SingleBlockingQueue {
+public class UsingBlockingQueue {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         LinkedBlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>(10);
