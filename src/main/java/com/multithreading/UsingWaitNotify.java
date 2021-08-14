@@ -15,6 +15,8 @@ public class UsingWaitNotify {
                             queue.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
+                        } finally {
+                            queue.notify();
                         }
                     }
                     queue.add(i);
@@ -31,6 +33,8 @@ public class UsingWaitNotify {
                             queue.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
+                        } finally {
+                            queue.notify();
                         }
                     }
                     System.out.println("Consume : " + queue.poll());
