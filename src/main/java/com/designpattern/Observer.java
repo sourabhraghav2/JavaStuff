@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-public class ObserverDemo {
+public class Observer {
     public static void main(String[] args) {
         Topic topic = new Topic();
 
