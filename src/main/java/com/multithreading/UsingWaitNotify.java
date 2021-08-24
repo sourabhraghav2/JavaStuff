@@ -10,7 +10,7 @@ public class UsingWaitNotify {
         final var producer = new Thread(() -> {
             for (int i = 0; i < 100; ++i) {
                 synchronized (queue) {
-                    while (queue.size() == maxLimit) {
+                    if (queue.size() == maxLimit) {
                         try {
                             queue.wait();
                         } catch (InterruptedException e) {
@@ -28,7 +28,7 @@ public class UsingWaitNotify {
         final var consumer = new Thread(() -> {
             while (true) {
                 synchronized (queue) {
-                    while (queue.size() == 0) {
+                    if (queue.size() == 0) {
                         try {
                             queue.wait();
                         } catch (InterruptedException e) {

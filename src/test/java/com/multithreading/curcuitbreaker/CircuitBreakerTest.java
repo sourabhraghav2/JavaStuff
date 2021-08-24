@@ -25,8 +25,8 @@ public class CircuitBreakerTest {
     @Test
     public void verify() throws InterruptedException {
         List<Integer> list = List.of(6, 2, 7, 1, 4, 7, 5, 6, 8, 1, 9, 3, 1, 4, 7, 5, 6, 8, 1, 6, 3, 1, 4, 7, 9, 6, 8, 1, 2, 9, 1, 4, 7, 5, 6, 8);
-        CircuitBreaker cb = new CircuitBreakerImpl(new ThreadPoolExecutor(4, 6, 15, TimeUnit.SECONDS, new ArrayBlockingQueue(10))
-                , 5, 5, 5);
+        final var executor = new ThreadPoolExecutor(4, 6, 15, TimeUnit.SECONDS, new ArrayBlockingQueue(10));
+        CircuitBreaker cb = new CircuitBreakerImpl(executor, 5, 5, 5);
         int count = 0;
         for (int i : list) {
             if (i == 1)
